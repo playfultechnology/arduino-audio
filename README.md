@@ -4,7 +4,7 @@ Notes, code, and wiring diagrams for common audio modules for small electronic p
 ## Summary
 
 | Image | Description | Interface | Storage | Power | Notes  | Purchase |
-| -------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |
+| :------------- | :------------ | :------------ | :------------ | :------------ | :------------ | :------------ |
 | ![](https://sc04.alicdn.com/kf/HTB1ef5LKpXXXXXsXVXXq6xXFXXXs.jpg) | GPD2846 | Multifunction pads (Play/Pause/Advance/Previous/Vol Up/Down) | SD Card | 2W | 5V, auto-plays and loops all MP3 cards present on SD Card as soon as powered-up. Can play/pause and advance to next track by shorting input pins to GND, but no way to select particular tracks. Onboard 2W amp. Can be used for ambient BGM.  | https://www.aliexpress.com/item/32859062476.html |
 | ![](https://images-na.ssl-images-amazon.com/images/I/612z-HkJB4L._AC_SL1000_.jpg) | YX5200 / YX5300 / YX6200 / YX6300 | Serial | SD Card | N/A | Controlled by simple set of serial commands on Tx/Rx pins. Can select particular tracks/folders (by number only not by name), start/stop etc. No on-board amp. https://arduinoplusplus.wordpress.com/2018/07/23/yx5300-serial-mp3-player-catalex-module/ | https://www.banggood.com/custlink/GmKYafRk4t |
 | ![](https://raw.githubusercontent.com/playfultechnology/arduino-audio/main/Docs/dfplayer.png) | YX5200 / YX5300  | Serial / IO / ADKey | SD Card | 3W | Goes by many names - most commonly "DFPlayer Mini", but also "MP3-TF-16P" and others. Typically combines YX5200 chip as above with YX8002-8S 3W amp. Try to avoid boards that come with MH2024K-24SS / JC AA20HF J616-94 clones, which although offer similar funcitonality many people have reported are fiddly to get to work - see https://www.thebackshed.com/forum/ViewTopic.php?TID=11977&P=1#164307 for a description of differences | https://www.banggood.com/custlink/GKDyjTR24w |
@@ -26,6 +26,26 @@ Additionally, the CON pins must be set through 10kΩ resistors through to GND (f
 - Datasheet at <a href="Docs/SEN-17-096 DataSheet.pdf">SEN-17-096 DataSheet.pdf</a>.
 - Library at https://github.com/SnijderC/dyplayer
 
+| Pin      | Connect to                                 |
+| :------- | :----------------------------------------- |
+| `Tx/IO0` | `MCU Rx` (via `1kΩ` res. if using 5V board |
+| `Rx/IO1` | `MCU Tx` (via `1kΩ` res. if using 5V board |
+| `IO2`    | -                                          |
+| `IO3`    | -                                          |
+| `IO4`    | -                                          |
+| `IO5`    | -                                          |
+| `IO6`    | -                                          |
+| `IO7`    | -                                          |
+| `GND`    | `GND`                                      |
 
-
-
+| Pin      | Connect to                                 |
+| :------- | :----------------------------------------- |
+| `SPK+`   | Speaker +ve, if using direct speaker conn  |
+| `SPK-`   | Speaker -ve, if using direct speaker conn  |
+| `DACL`   | Left channel if using amp                  |
+| `DACR`   | Right channel if using amp                 |
+| `V33`    | 3.3V output from onboard LDO               |
+| `V5`     | `5V`                                       |
+| `CON3`   | `3.3V` (via `1kΩ` res)                     |
+| `CON2`   | `GND` (via `1kΩ` res)                      |
+| `CON1`   | `GND` (via `1kΩ` res)                      |
