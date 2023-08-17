@@ -20,6 +20,9 @@ Notes, code, and wiring diagrams for common audio modules for small electronic p
 
 
 ## DY-SV17F
+Note that this device operates at 3.3V logic! 5V is connected at pin 13, but all the I/O pins (whether using UART mode, trigger mode, or one_line mode), and the CON configuration pins should only ever have 3.3V signals written to them. The BUSY (pin 12) signal will also only output 3.3V logic HIGH.
+If using a 5V MCU like an Arduino, a 5V->3.3V level shifter, or 1kΩ resistor _must_ be placed on any lines that are driven high by the MCU.
+Additionally, the CON pins must be set through 10kΩ resistors through to GND (for LOW), or 3.3V (for HIGH).
 - Datasheet at <a href="Docs/SEN-17-096 DataSheet.pdf">SEN-17-096 DataSheet.pdf</a>.
 - Library at https://github.com/SnijderC/dyplayer
 
