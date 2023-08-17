@@ -1,6 +1,7 @@
 # arduino-audio
 Notes, code, and wiring diagrams for common audio modules for small electronic projects
 
+## Summary
 
 | Image | Description | Interface | Storage | Power | Notes  | Purchase |
 | -------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |
@@ -13,6 +14,15 @@ Notes, code, and wiring diagrams for common audio modules for small electronic p
 | ![](https://raw.githubusercontent.com/playfultechnology/arduino-audio/main/Docs/dy-hv20t.png) | DY-HV20T | Serial / IO | SD Card | 20W | Same as DY-SV5W except has louder, 20W amp, and operates with supply voltage from 6-35V |  |
 | ![](https://raw.githubusercontent.com/playfultechnology/arduino-audio/main/Docs/dy-hv8f.png) | DY-HV8F | Serial / IO | 8Mb onboard flash | 20W | Same as DY-SV8F except has louder, 20W amp, and operates with supply voltage from 6-35W |  |
 | ![](https://imgaz1.staticbg.com/thumb/large/oaupload/banggood/images/76/B2/95d112c6-fbc6-40f6-a313-3bfc68423d2f.jpg) | VLSI VS1053 | SPI | Varies | N/A | Supports very wide range of audio encodings (MP3, AAC, Ogg Vorbis, WMA, MIDI, FLAC, WAV (PCM and ADPCM)), together with MIDI support and microphone audio recording. Can playback and mix multiple simultaneous audio files. SPI interface, requires library and Arduino controller. Another advantage of these boards is they expose full functionality of the SD card - you can list folder structure, enumerate files, and reference files by "name", rather than just arbitrary index position. | https://www.banggood.com/custlink/mGDEo7yMso (Breakout with SD)    https://www.banggood.com/custlink/KDKRowRznd  (Breakout *no* SD card) https://www.banggood.com/custlink/vmvyl1RMA0 (Shield for UNO with SD card |
-| ![](https://raw.githubusercontent.com/playfultechnology/arduino-audio/main/Docs/robsertsonics_wavtrigger.png) | ARMSTM32 | | | - | RobertSonics WavTrigger | https://robertsonics.com/wav-trigger/ |
+| ![](https://raw.githubusercontent.com/playfultechnology/arduino-audio/main/Docs/robsertsonics_wavtrigger.png) | ARMSTM32 | | SD Card | - | RobertSonics WavTrigger | https://robertsonics.com/wav-trigger/ |
 | ![](https://raw.githubusercontent.com/playfultechnology/arduino-audio/main/Docs/adafruit_audiofx_soundboard.png) | VLSI VS1000D | | | - | Adafruit Audio FX | https://www.adafruit.com/product/2133 |
 | ![](https://raw.githubusercontent.com/playfultechnology/arduino-audio/main/Docs/adafruit_audiofx_mini_soundboard.png) | VLSI VS1000D | | | - | Adafruit Audio Mini FX | https://www.adafruit.com/product/2342 |
+
+
+## DY-SV17F
+- Datasheet at <a href="Docs/SEN-17-096 DataSheet.pdf">SEN-17-096 DataSheet.pdf</a>.
+- Library at https://github.com/SnijderC/dyplayer
+
+
+
+
