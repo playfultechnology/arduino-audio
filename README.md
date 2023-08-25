@@ -56,6 +56,63 @@ Additionally, the CON pins must be set through 10kΩ resistors through to GND (f
 
 ## DF Player Mini
 
+There are _many_ DFPlayer Mini libraries, here are just a few:
+- https://github.com/DFRobot/DFRobotDFPlayerMini
+- https://github.com/PowerBroker2/DFPlayerMini_Fast
+- https://github.com/Makuna/DFMiniMp3
+- https://github.com/enjoyneering/DFPlayer
+
+They all expose basically the same functionality, which is to create a 9600bps software serial connection (either using Arduino's built-in SoftwareSerial library, or an alternative like AltSoftSerial), and then writing command bytes to it. 
+The format used by the DFPlayer is pretty straightforward:
+```
+0x7E FF 06 CMD FB LB HB CHK1 CHK0 0xEF
+```
+Where:
+- 0x7E is the start byte
+- FF is the version
+- 06 is the length of the packet (excluding start byte and end byte)
+- CMD is the command byte
+- FB is the feedback byte (usually set to 0x00)
+- LB and HB are the low and high bytes of parameters
+- CHK1 and CHK0 are the high and low bytes of the checksum
+- 0xEF is the end byte.
+
+In fact, it's relatively straightforward to write your own code with no need for external library at all. For example, the following code will play track 4:
+
+```
+// Start Byte
+Serial1.write(0x7E);
+
+// Version
+Serial1.write(0xFF);
+
+// Command Length
+Serial1.write(0x06);
+  
+// Command to playback a specific track
+Serial1.write(0x03);
+  
+// Feedback byte
+Serial1.write(0x00);
+  
+// Parameter 1 (High byte of track number)
+Serial1.write(0x00);
+  
+// Parameter 2 (Low byte of track number)
+Serial1.write(0x04);
+  
+// Checksum calculated as 0 - (0x06 + command + 0x00 + param1 + param2);
+Serial1.write(0x00);
+Serial1.write(0xF3);
+  
+// End Byte
+Serial1.write(0xEF);
+
+```
+
+Find out what functionality the chip on your DFPlayer supports:
+- https://github.com/ghmartin77/DFPlayerAnalyzer
+
 ## Serial MP3 Player
 
 Playback libraries
