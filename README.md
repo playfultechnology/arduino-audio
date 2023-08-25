@@ -49,3 +49,18 @@ Additionally, the CON pins must be set through 10kΩ resistors through to GND (f
 | `CON3`   | `3.3V` (via `1kΩ` res)                     |
 | `CON2`   | `GND` (via `1kΩ` res)                      |
 | `CON1`   | `GND` (via `1kΩ` res)                      |
+
+## DY-SV5W / DY-SV8F
+
+## DY-HV20T / DY-HV8F
+
+## DF Player Mini
+
+## Serial MP3 Player
+
+Playback libraries
+---
+https://github.com/salvadorrueda/SerialMP3Player
+https://github.com/MajicDesigns/MD_YX5300
+
+
