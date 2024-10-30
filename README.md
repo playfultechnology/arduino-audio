@@ -18,6 +18,8 @@ Notes, code, and wiring diagrams for common audio modules for small electronic p
 | ![](https://raw.githubusercontent.com/playfultechnology/arduino-audio/main/Docs/adafruit_audiofx_soundboard.png) | VLSI VS1000D | | | - | Adafruit Audio FX | https://www.adafruit.com/product/2133 |
 | ![](https://raw.githubusercontent.com/playfultechnology/arduino-audio/main/Docs/adafruit_audiofx_mini_soundboard.png) | VLSI VS1000D | | | - | Adafruit Audio Mini FX | https://www.adafruit.com/product/2342 |
 
+## Sorting and Indexing
+Many of these devices suggest you should name your files with numeric prefixes: "0001 audio.wav", "002 another audio.mp3", etc., so that they can be individually addressed by index. However, the truth is that they file name is largely irrelevant - files are actually addressed by their position in the File Allocation Table. *If* you copy a load of numerically-labelled files all together, in order, onto a freshly-formatted SD card, that will probably be the same. However, as soon as you delete/rename/move/add files, this indexing breaks. One way to fix it again is to use the DriveSort utility, available at https://www.anerty.net/software/file/DriveSort/?lang=en
 
 ## DY-SV17F
 Note that this device operates at 3.3V logic! 5V is connected at pin 13, but all the I/O pins (whether using UART mode, trigger mode, or one_line mode), and the CON configuration pins should only ever have 3.3V signals written to them. The BUSY (pin 12) signal will also only output 3.3V logic HIGH.
